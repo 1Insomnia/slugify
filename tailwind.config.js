@@ -42,6 +42,9 @@ module.exports = {
       sans: ['IBM Plex Sans', fontFamily.sans],
     },
     extend: {
+      width: {
+        200: '200px',
+      },
       minWidth: {
         200: '200px',
       },
