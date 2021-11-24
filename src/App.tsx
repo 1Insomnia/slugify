@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Hero from './components/Hero'
+import Result from './components/Result'
+import UserInput from './components/UserInput'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface IState {
+  result: string
 }
 
-export default App;
+function App() {
+  const [result, setResult] = useState<IState['result']>('')
+
+  return (
+    <div className="font-sans text-dark bg-light min-h-screen">
+      <Hero />
+      <UserInput setResult={setResult} />
+      <Result result={result} />
+    </div>
+  )
+}
+
+export default App
