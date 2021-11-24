@@ -1,30 +1,17 @@
-import React, { Dispatch, MouseEvent, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 // @ts-ignore
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 interface IProps {
   result: string
-  copy: string
 }
 
 interface IState {
   copied: boolean
 }
 
-export default function Result({
-  result,
-  setCopy,
-}: {
-  result: IProps['result']
-  setCopy: Dispatch<IProps['copy']>
-}) {
+export default function Result({ result }: { result: IProps['result'] }) {
   const [copied, setCopied] = useState<IState['copied']>(false)
-
-  const handleCopy = (e: MouseEvent<HTMLButtonElement>) => {
-    if (result.trim() !== '') {
-      console.log(result)
-    }
-  }
 
   useEffect(() => {
     let TIMER = 1000
@@ -51,10 +38,7 @@ export default function Result({
               <div className="mb-10">{result}</div>
             </div>
             <CopyToClipboard text={result} onCopy={() => setCopied(true)}>
-              <button
-                className="text-light bg-dark h-10 text-sm capitalize border border-dark min-w-200 shadow-sm rounded-md px-5 transition-opacity duration-200 ease hover:opacity-90 flex items-center justify-center gap-1"
-                onClick={handleCopy}
-              >
+              <button className="text-light bg-dark h-10 text-sm capitalize border border-dark min-w-200 shadow-sm rounded-md px-5 transition-opacity duration-200 ease hover:opacity-90 flex items-center justify-center gap-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -73,7 +57,7 @@ export default function Result({
               </button>
             </CopyToClipboard>
             {copied && result.length > 0 ? (
-              <div className="mt-8">
+              <div className="mt-8 fixed top-4 right-4">
                 <span className="text-light bg-cyan h-10 text-sm capitalize w-200 shadow-sm rounded-md px-5 flex items-center justify-center">
                   Copied.
                 </span>

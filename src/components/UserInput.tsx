@@ -16,7 +16,6 @@ export default function UserInput({
   result: IProps['result']
   setResult: Dispatch<IProps['result']>
 }) {
-  //
   const [input, setInput] = useState<IState['input']>('')
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

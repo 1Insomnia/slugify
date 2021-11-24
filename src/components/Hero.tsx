@@ -8,7 +8,7 @@ export default function Hero() {
           Slugify
         </h1>
         <h2 className="text-lg text-center">
-          Create any slugs for your website
+          Create simple slugs for your website
         </h2>
       </div>
     </section>
