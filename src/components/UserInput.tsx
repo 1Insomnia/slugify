@@ -22,7 +22,7 @@ export default function UserInput({
     setInput(e.target.value)
   }
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-    setResult(slugify(input))
+    setResult(slugify(input).toLowerCase())
     setInput('')
   }
 
